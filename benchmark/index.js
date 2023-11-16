@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 import {Suite} from '@jonahsnider/benchmark';
 import ansi from 'ansi-colors';
-import chalk from 'chalk';
+import chalk4 from 'chalk-4';
+import chalk from 'chalk-5';
 import cliColor from 'cli-color';
 import * as colorette from 'colorette';
 import kleur from 'kleur';
@@ -40,7 +41,12 @@ suite
 		out = ansi.green('Add plugin to use time limit');
 		out = ansi.blue('Add plugin to use time limit');
 	})
-	.addTest('chalk', () => {
+	.addTest('chalk@4', () => {
+		out = chalk4.red('Add plugin to use time limit');
+		out = chalk4.green('Add plugin to use time limit');
+		out = chalk4.blue('Add plugin to use time limit');
+	})
+	.addTest('chalk@5', () => {
 		out = chalk.red('Add plugin to use time limit');
 		out = chalk.green('Add plugin to use time limit');
 		out = chalk.blue('Add plugin to use time limit');
