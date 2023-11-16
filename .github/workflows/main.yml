@@ -1,7 +1,12 @@
 name: CI
 on:
-  - push
-  - pull_request
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
 jobs:
   test:
     name: Node.js ${{ matrix.node-version }}
@@ -10,13 +15,26 @@ jobs:
       fail-fast: false
       matrix:
         node-version:
+          - 21
+          - 20
           - 18
           - 16
           - 14
+          - 12
+        include:
+          - node-version: ^10.16.0
+            legacy: true
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm install
-      - run: npm test
+      - if: ${{ matrix.legacy }}
+        run: npm run test:legacy
+        env:
+          TRAVIS: 1 # hack to make Node think we're in a 'good' CI
+      - if: ${{ ! matrix.legacy }}
+        run: npm run test
+        env:
+          FORCE_COLOR: 1

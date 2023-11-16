@@ -30,10 +30,11 @@
 	"exports": "./index.js",
 	"types": "./index.d.ts",
 	"engines": {
-		"node": ">=14.16"
+		"node": "^10.16.0 || ^11.3.0 || >=12"
 	},
 	"scripts": {
-		"test": "xo && uvu && tsd"
+		"test:legacy": "node -r esm ./test.js && tsd",
+		"test": "uvu && tsd"
 	},
 	"files": [
 		"index.js",
@@ -61,6 +62,7 @@
 	],
 	"devDependencies": {
 		"@jonahsnider/benchmark": "^5.0.0",
+		"esm": "^3.2.25",
 		"tsd": "^0.22.0",
 		"uvu": "^0.5.6",
 		"xo": "^0.50.0"
