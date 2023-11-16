@@ -98,6 +98,12 @@ Yes:
 - [ansi-colors] by Brian Woodward. A (then) faster drop-in replacement for Chalk without the bugs of other libraries.
 - [cli-color] by Mariusz Nowak. Supports 256 colours with some nice features added on top.
 
+## What should I use?
+
+Probably [chalk]. But maybe not! See this graph for help:
+
+![A flowchart diagram illustrating your intended choice process. Choose this package, if you value speed and package size, if you don't need that many features, or if you want browser interoperability. If you need support for CommonJS and/or Node 10, and if you are willing to sacrifice functionality, choose this package also. Otherwise, choose Chalk v4 or v5, depending on the support for CommonJS.](./choose.svg)
+
 ## Benchmark
 
 This is outdated.
