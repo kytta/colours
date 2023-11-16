@@ -1,8 +1,8 @@
-<sup>yoctocolors 🌈</sup>
+# colours
 
-> The smallest and fastest command-line coloring package on the internet
+> The second-smallest and second-fastest command-line colouring package on the internet
 
-*Check out [Chalk](https://github.com/chalk/chalk) if you want something more mature and comprehensive.*
+_Check out [the alternatives](#prior-art) for more packages like this._
 
 ## Highlights
 
@@ -11,22 +11,27 @@
 - Tree-shakeable
 - No dependencies
 - Actively maintained
+- Supports [`NO_COLOR`][no-color] & `FORCE_COLOR`
+- Supports bright colours (WIP)
+- Can be composed (WIP)
+- Works in browsers (WIP)
+- Works on CommonJS (WIP)
 
 ## Install
 
 ```sh
-npm install yoctocolors
+pnpm add @kytta/colours
 ```
 
 ## Usage
 
 ```js
-import * as colors from 'yoctocolors';
+import * as colours from "@kytta/colours";
 
-console.log(colors.red('Yo!'));
+console.log(colours.red("Yo!"));
 ```
 
-*This package supports [basic color detection](https://nodejs.org/api/tty.html#writestreamhascolorscount-env). Colors can be forcefully enabled by setting the `FORCE_COLOR` environment variable to `1` and can be forcefully disabled by setting `NO_COLOR` or `NODE_DISABLE_COLORS` to any value. [More info.](https://nodejs.org/api/tty.html#writestreamgetcolordepthenv)*
+_This package supports [basic color detection](https://nodejs.org/api/tty.html#writestreamhascolorscount-env). Colors can be forcefully enabled by setting the `FORCE_COLOR` environment variable to `1` and can be forcefully disabled by setting `NO_COLOR` or `NODE_DISABLE_COLORS` to any value. [More info.](https://nodejs.org/api/tty.html#writestreamgetcolordepthenv)_
 
 ## Styles
 
@@ -35,12 +40,12 @@ console.log(colors.red('Yo!'));
 - `reset` - Reset the current style.
 - `bold` - Make the text bold.
 - `dim` - Make the text have lower opacity.
-- `italic` - Make the text italic. *(Not widely supported)*
-- `underline` - Put a horizontal line above the text. *(Not widely supported)*
-- `overline` - Put a horizontal line below the text. *(Not widely supported)*
+- `italic` - Make the text italic. _(Not widely supported)_
+- `underline` - Put a horizontal line above the text. _(Not widely supported)_
+- `overline` - Put a horizontal line below the text. _(Not widely supported)_
 - `inverse`- Invert background and foreground colors.
 - `hidden` - Print the text but make it invisible.
-- `strikethrough` - Put a horizontal line through the center of the text. *(Not widely supported)*
+- `strikethrough` - Put a horizontal line through the center of the text. _(Not widely supported)_
 
 ### Colors
 
@@ -68,9 +73,20 @@ console.log(colors.red('Yo!'));
 
 ## Prior art
 
-Yes
+Yes:
+
+- [yoctocolors] by Sindre Sorhus. This is a fork of it.
+- [picocolors] by Alexey Raspopov. As small as it can get.
+- [nanocolors] by Andrey Sitnik. A fork of colorette with hacks from kleur/colors.
+- [colorette] by Jorge Bucaran. The OG lightweight command-line colouring library.
+- [kleur] by Luke Edwards. Supports nesting and chaining
+- [chalk] by Sindre Sorhus. The most advanced of the bunch. Supports all RGB colours with graceful degradation, and more.
+- [ansi-colors] by Brian Woodward. A (then) faster drop-in replacement for Chalk without the bugs of other libraries.
+- [cli-color] by Mariusz Nowak. Supports 256 colours with some nice features added on top.
 
 ## Benchmark
+
+This is outdated.
 
 ```sh
 $ ./benchmark.js
@@ -89,15 +105,30 @@ $ ./benchmark.js
 └─────────┴────────────────┴─────────────┘
 ```
 
-*See [benchmark.js](benchmark.js).*
+_See [benchmark.js](benchmark.js)._
 
-## FAQ
+## License
 
-### What is yocto?
+© 2023 [Nikita Karamov]\
+Licensed under the [MIT License].
 
-[It was the smallest official unit prefix in the metric system until 2022.](https://en.wikipedia.org/wiki/Yocto-) Much smaller than nano.
+Based on [yoctocolors].\
+© [Sindre Sorhus]\
+Licensed under the [MIT License].
 
-## Related
+---
 
-- [yoctodelay](https://github.com/sindresorhus/yoctodelay) - Delay a promise a given amount of time
-- [chalk](https://github.com/chalk/chalk) - Terminal string styling
+This project is hosted on GitHub: <https://github.com/kytta/colours.git>
+
+[no-color]: https://no-color.org/
+[ansi-colors]: https://github.com/doowb/ansi-colors
+[chalk]: https://github.com/chalk/chalk
+[cli-color]: https://github.com/medikoo/cli-color
+[colorette]: https://github.com/jorgebucaran/colorette
+[kleur]: https://github.com/lukeed/kleur
+[nanocolors]: https://github.com/ai/nanocolors
+[picocolors]: https://github.com/alexeyraspopov/picocolors
+[yoctocolors]: https://github.com/sindresorhus/yoctocolors
+[mit license]: https://spdx.org/licenses/MIT.html
+[nikita karamov]: https://www.kytta.dev/
+[sindre sorhus]: https://sindresorhus.com
