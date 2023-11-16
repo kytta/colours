@@ -1,6 +1,6 @@
 # colours
 
-> The second-smallest and second-fastest command-line colouring package on the internet
+> The fastest command-line colouring package on the internet
 
 _Check out [the alternatives](#prior-art) for more packages like this._
 
@@ -12,10 +12,10 @@ _Check out [the alternatives](#prior-art) for more packages like this._
 - No dependencies
 - Actively maintained
 - Supports [`NO_COLOR`][no-color] & `FORCE_COLOR`
-- Supports bright colours (WIP)
+- Supports bright colours
 - Can be composed (WIP)
-- Works in browsers (WIP)
-- Works on CommonJS (WIP)
+- Works in browsers
+- Works on CommonJS
 
 ## Install
 
@@ -40,12 +40,12 @@ _This package supports [basic color detection](https://nodejs.org/api/tty.html#w
 - `reset` - Reset the current style.
 - `bold` - Make the text bold.
 - `dim` - Make the text have lower opacity.
-- `italic` - Make the text italic. _(Not widely supported)_
-- `underline` - Put a horizontal line above the text. _(Not widely supported)_
-- `overline` - Put a horizontal line below the text. _(Not widely supported)_
+- `italic` - Make the text italic. *(Not widely supported)*
+- `underline` - Put a horizontal line below the text. *(Not widely supported)*
+- `overline` - Put a horizontal line above the text. *(Not widely supported)*
 - `inverse`- Invert background and foreground colors.
 - `hidden` - Print the text but make it invisible.
-- `strikethrough` - Put a horizontal line through the center of the text. _(Not widely supported)_
+- `strikethrough` - Puts a horizontal line through the center of the text. *(Not widely supported)*
 
 ### Colors
 
@@ -57,7 +57,14 @@ _This package supports [basic color detection](https://nodejs.org/api/tty.html#w
 - `magenta`
 - `cyan`
 - `white`
-- `gray`
+- `blackBright` (alias: `gray`, `grey`)
+- `redBright`
+- `greenBright`
+- `yellowBright`
+- `blueBright`
+- `magentaBright`
+- `cyanBright`
+- `whiteBright`
 
 ### Background colors
 
@@ -69,7 +76,14 @@ _This package supports [basic color detection](https://nodejs.org/api/tty.html#w
 - `bgMagenta`
 - `bgCyan`
 - `bgWhite`
-- `bgGray`
+- `bgBlackBright` (alias: `bgGray`, `bgGrey`)
+- `bgRedBright`
+- `bgGreenBright`
+- `bgYellowBright`
+- `bgBlueBright`
+- `bgMagentaBright`
+- `bgCyanBright`
+- `bgWhiteBright`
 
 ## Prior art
 
@@ -84,6 +98,12 @@ Yes:
 - [ansi-colors] by Brian Woodward. A (then) faster drop-in replacement for Chalk without the bugs of other libraries.
 - [cli-color] by Mariusz Nowak. Supports 256 colours with some nice features added on top.
 
+## What should I use?
+
+Probably [chalk]. But maybe not! See this graph for help:
+
+![A flowchart diagram illustrating your intended choice process. Choose this package, if you value speed and package size, if you don't need that many features, or if you want browser interoperability. If you need support for CommonJS and/or Node 10, and if you are willing to sacrifice functionality, choose this package also. Otherwise, choose Chalk v4 or v5, depending on the support for CommonJS.](./choose.svg)
+
 ## Benchmark
 
 This is outdated.
@@ -93,17 +113,17 @@ $ ./benchmark/index.js
 ┌─────────┬──────────────────┬──────────────┐
 │ (index) │     Library      │   ops/sec    │
 ├─────────┼──────────────────┼──────────────┤
-│    0    │  'yoctocolors'   │ '28.366.029' │
-│    1    │ '@kytta/colours' │ '23.174.422' │
-│    2    │   'nanocolors'   │ '17.889.336' │
-│    3    │   'picocolors'   │ '17.711.892' │
-│    4    │  'kleur/colors'  │ '17.532.343' │
-│    5    │   'colorette'    │ '17.526.359' │
-│    6    │    'chalk@5'     │ '10.626.501' │
-│    7    │     'kleur'      │ '10.149.691' │
-│    8    │    'chalk@4'     │ '9.931.832'  │
-│    9    │  'ansi-colors'   │ '3.807.530'  │
-│   10    │   'cli-color'    │  '804.993'   │
+│    0    │ '@kytta/colours' │ '27.725.838' │
+│    1    │  'yoctocolors'   │ '26.188.058' │
+│    2    │   'nanocolors'   │ '17.240.092' │
+│    3    │   'picocolors'   │ '16.857.757' │
+│    4    │   'colorette'    │ '16.798.142' │
+│    5    │  'kleur/colors'  │ '16.535.599' │
+│    6    │     'kleur'      │ '10.393.367' │
+│    7    │    'chalk@5'     │ '10.101.294' │
+│    8    │    'chalk@4'     │ '9.207.347'  │
+│    9    │  'ansi-colors'   │ '3.825.073'  │
+│   10    │   'cli-color'    │  '806.073'   │
 └─────────┴──────────────────┴──────────────┘
 ```
 

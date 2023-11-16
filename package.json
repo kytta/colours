@@ -1,7 +1,7 @@
 {
 	"name": "@kytta/colours",
 	"version": "1.0.0",
-	"description": "The second-smallest and second-fastest command-line colouring package on the internet",
+	"description": "The second-fastest command-line colouring package on the internet",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
@@ -27,19 +27,37 @@
 		}
 	],
 	"type": "module",
-	"exports": "./index.js",
+	"sideEffects": false,
 	"types": "./index.d.ts",
+	"browser": {
+		"./index.js": "./index.browser.js",
+		"./index.cjs": "./index.browser.cjs"
+	},
+	"main": "index.cjs",
+	"module": "index.js",
+	"react-native": "index.browser.js",
+	"exports": {
+		".": {
+			"browser": "./index.browser.js",
+			"require": "./index.cjs",
+			"import": "./index.js",
+			"default": "./index.js"
+		}
+	},
 	"engines": {
 		"node": "^10.16.0 || ^11.3.0 || >=12"
 	},
 	"scripts": {
 		"lint": "xo",
-		"test": "uvu",
-		"test:legacy": "node -r esm ./test.js",
+		"test": "uvu tests",
+		"test:legacy": "node -r esm tests/index.js && node -r esm tests/index.cjs",
 		"tsd": "tsd"
 	},
 	"files": [
 		"index.js",
+		"index.cjs",
+		"index.browser.js",
+		"index.browser.cjs",
 		"index.d.ts"
 	],
 	"keywords": [
