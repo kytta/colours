@@ -27,19 +27,27 @@
 		}
 	],
 	"type": "module",
-	"exports": "./index.js",
+	"sideEffects": false,
 	"types": "./index.d.ts",
+	"exports": {
+		".": {
+			"require": "./index.cjs",
+			"import": "./index.js",
+			"default": "./index.js"
+		}
+	},
 	"engines": {
 		"node": "^10.16.0 || ^11.3.0 || >=12"
 	},
 	"scripts": {
 		"lint": "xo",
-		"test": "uvu",
-		"test:legacy": "node -r esm ./test.js",
+		"test": "uvu tests",
+		"test:legacy": "node -r esm tests/index.js && node -r esm tests/index.cjs",
 		"tsd": "tsd"
 	},
 	"files": [
 		"index.js",
+		"index.cjs",
 		"index.d.ts"
 	],
 	"keywords": [

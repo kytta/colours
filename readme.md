@@ -15,7 +15,7 @@ _Check out [the alternatives](#prior-art) for more packages like this._
 - Supports bright colours
 - Can be composed (WIP)
 - Works in browsers (WIP)
-- Works on CommonJS (WIP)
+- Works on CommonJS
 
 ## Install
 

@@ -1,0 +1,55 @@
+const tty = require('tty');
+
+const hasColors = tty.WriteStream.prototype.hasColors();
+
+module.exports = {
+	reset: hasColors ? (string) => "\x1B[0m" + string + "\x1B[0m" : (string) => string,
+	bold: hasColors ? (string) => "\x1B[1m" + string + "\x1B[22m" : (string) => string,
+	dim: hasColors ? (string) => "\x1B[2m" + string + "\x1B[22m" : (string) => string,
+	italic: hasColors ? (string) => "\x1B[3m" + string + "\x1B[23m" : (string) => string,
+	underline: hasColors ? (string) => "\x1B[4m" + string + "\x1B[24m" : (string) => string,
+	inverse: hasColors ? (string) => "\x1B[7m" + string + "\x1B[27m" : (string) => string,
+	hidden: hasColors ? (string) => "\x1B[8m" + string + "\x1B[28m" : (string) => string,
+	strikethrough: hasColors ? (string) => "\x1B[9m" + string + "\x1B[29m" : (string) => string,
+	overline: hasColors ? (string) => "\x1B[53m" + string + "\x1B[55m" : (string) => string,
+
+	black: hasColors ? (string) => "\x1B[30m" + string + "\x1B[39m" : (string) => string,
+	red: hasColors ? (string) => "\x1B[31m" + string + "\x1B[39m" : (string) => string,
+	green: hasColors ? (string) => "\x1B[32m" + string + "\x1B[39m" : (string) => string,
+	yellow: hasColors ? (string) => "\x1B[33m" + string + "\x1B[39m" : (string) => string,
+	blue: hasColors ? (string) => "\x1B[34m" + string + "\x1B[39m" : (string) => string,
+	magenta: hasColors ? (string) => "\x1B[35m" + string + "\x1B[39m" : (string) => string,
+	cyan: hasColors ? (string) => "\x1B[36m" + string + "\x1B[39m" : (string) => string,
+	white: hasColors ? (string) => "\x1B[37m" + string + "\x1B[39m" : (string) => string,
+
+	blackBright: hasColors ? (string) => "\x1B[90m" + string + "\x1B[39m" : (string) => string,
+	grey: hasColors ? (string) => "\x1B[90m" + string + "\x1B[39m" : (string) => string,
+	gray: hasColors ? (string) => "\x1B[90m" + string + "\x1B[39m" : (string) => string,
+	redBright: hasColors ? (string) => "\x1B[91m" + string + "\x1B[39m" : (string) => string,
+	greenBright: hasColors ? (string) => "\x1B[92m" + string + "\x1B[39m" : (string) => string,
+	yellowBright: hasColors ? (string) => "\x1B[93m" + string + "\x1B[39m" : (string) => string,
+	blueBright: hasColors ? (string) => "\x1B[94m" + string + "\x1B[39m" : (string) => string,
+	magentaBright: hasColors ? (string) => "\x1B[95m" + string + "\x1B[39m" : (string) => string,
+	cyanBright: hasColors ? (string) => "\x1B[96m" + string + "\x1B[39m" : (string) => string,
+	whiteBright: hasColors ? (string) => "\x1B[97m" + string + "\x1B[39m" : (string) => string,
+
+	bgBlack: hasColors ? (string) => "\x1B[40m" + string + "\x1B[49m" : (string) => string,
+	bgRed: hasColors ? (string) => "\x1B[41m" + string + "\x1B[49m" : (string) => string,
+	bgGreen: hasColors ? (string) => "\x1B[42m" + string + "\x1B[49m" : (string) => string,
+	bgYellow: hasColors ? (string) => "\x1B[43m" + string + "\x1B[49m" : (string) => string,
+	bgBlue: hasColors ? (string) => "\x1B[44m" + string + "\x1B[49m" : (string) => string,
+	bgMagenta: hasColors ? (string) => "\x1B[45m" + string + "\x1B[49m" : (string) => string,
+	bgCyan: hasColors ? (string) => "\x1B[46m" + string + "\x1B[49m" : (string) => string,
+	bgWhite: hasColors ? (string) => "\x1B[47m" + string + "\x1B[49m" : (string) => string,
+
+	bgBlackBright: hasColors ? (string) => "\x1B[100m" + string + "\x1B[49m" : (string) => string,
+	bgGrey: hasColors ? (string) => "\x1B[100m" + string + "\x1B[49m" : (string) => string,
+	bgGray: hasColors ? (string) => "\x1B[100m" + string + "\x1B[49m" : (string) => string,
+	bgRedBright: hasColors ? (string) => "\x1B[101m" + string + "\x1B[49m" : (string) => string,
+	bgGreenBright: hasColors ? (string) => "\x1B[102m" + string + "\x1B[49m" : (string) => string,
+	bgYellowBright: hasColors ? (string) => "\x1B[103m" + string + "\x1B[49m" : (string) => string,
+	bgBlueBright: hasColors ? (string) => "\x1B[104m" + string + "\x1B[49m" : (string) => string,
+	bgMagentaBright: hasColors ? (string) => "\x1B[105m" + string + "\x1B[49m" : (string) => string,
+	bgCyanBright: hasColors ? (string) => "\x1B[106m" + string + "\x1B[49m" : (string) => string,
+	bgWhiteBright: hasColors ? (string) => "\x1B[107m" + string + "\x1B[49m" : (string) => string,
+}

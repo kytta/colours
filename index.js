@@ -26,6 +26,7 @@ export const blue = hasColors ? string => '\u001B[34m' + string + '\u001B[39m' :
 export const magenta = hasColors ? string => '\u001B[35m' + string + '\u001B[39m' : string => string;
 export const cyan = hasColors ? string => '\u001B[36m' + string + '\u001B[39m' : string => string;
 export const white = hasColors ? string => '\u001B[37m' + string + '\u001B[39m' : string => string;
+
 export const blackBright = hasColors ? string => '\u001B[90m' + string + '\u001B[39m' : string => string;
 export const grey = blackBright;
 export const gray = blackBright;
