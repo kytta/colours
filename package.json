@@ -33,8 +33,9 @@
 		"node": "^10.16.0 || ^11.3.0 || >=12"
 	},
 	"scripts": {
-		"test:legacy": "node -r esm ./test.js && tsd",
-		"test": "uvu && tsd"
+		"lint": "xo",
+		"test": "uvu && tsd",
+		"test:legacy": "node -r esm ./test.js && tsd"
 	},
 	"files": [
 		"index.js",
@@ -65,6 +66,6 @@
 		"esm": "^3.2.25",
 		"tsd": "^0.22.0",
 		"uvu": "^0.5.6",
-		"xo": "^0.50.0"
+		"xo": "^0.56.0"
 	}
 }
