@@ -4,7 +4,7 @@ const tty = require('tty');
 const hasColors = tty.WriteStream.prototype.hasColors();
 
 module.exports = {
-	reset: hasColors ? string => '\u001B[0m' + string + '\u001B[0m' : string => string,
+	reset: hasColors ? string => '\u001B[0m' + string : string => string,
 	bold: hasColors ? string => '\u001B[1m' + string + '\u001B[22m' : string => string,
 	dim: hasColors ? string => '\u001B[2m' + string + '\u001B[22m' : string => string,
 	italic: hasColors ? string => '\u001B[3m' + string + '\u001B[23m' : string => string,

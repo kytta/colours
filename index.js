@@ -4,7 +4,7 @@ import tty from 'tty';
 const hasColors = tty.WriteStream.prototype.hasColors();
 
 // Intentionally not using template literal for performance.
-export const reset = hasColors ? string => '\u001B[0m' + string + '\u001B[0m' : string => string;
+export const reset = hasColors ? string => '\u001B[0m' + string : string => string;
 export const bold = hasColors ? string => '\u001B[1m' + string + '\u001B[22m' : string => string;
 export const dim = hasColors ? string => '\u001B[2m' + string + '\u001B[22m' : string => string;
 export const italic = hasColors ? string => '\u001B[3m' + string + '\u001B[23m' : string => string;
