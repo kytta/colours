@@ -1,6 +1,9 @@
-import test from 'ava';
-import * as colors from './index.js';
+import {test} from 'uvu';
+import * as assert from 'uvu/assert';
+import * as colours from './index.js';
 
-test('main', t => {
-	t.is(colors.red('foo'), '\u001B[31mfoo\u001B[39m');
+test('main', () => {
+	assert.equal(colours.red('foo'), '\u001B[31mfoo\u001B[39m');
 });
+
+test.run();
