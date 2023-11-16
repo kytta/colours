@@ -9,7 +9,7 @@ import kleur from 'kleur';
 import * as kleurColors from 'kleur/colors';
 import * as nanocolors from 'nanocolors';
 import picocolors from 'picocolors';
-import * as yoctocolors from './index.js';
+import * as yoctocolors from '../index.js';
 
 const suite = new Suite('simple', {
 	warmup: {trials: 10_000_000},

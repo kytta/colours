@@ -89,7 +89,7 @@ Yes:
 This is outdated.
 
 ```sh
-$ ./benchmark.js
+$ ./benchmark/index.js
 ┌─────────┬────────────────┬─────────────┐
 │ (index) │    library     │   ops/sec   │
 ├─────────┼────────────────┼─────────────┤
@@ -105,7 +105,7 @@ $ ./benchmark.js
 └─────────┴────────────────┴─────────────┘
 ```
 
-_See [benchmark.js](benchmark.js)._
+_See [benchmark/index.js](benchmark/index.js)._
 
 ## License
 
