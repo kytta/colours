@@ -1,7 +1,7 @@
 {
 	"name": "@kytta/colours",
 	"version": "1.0.0",
-	"description": "The second-smallest and second-fastest command-line colouring package on the internet",
+	"description": "The second-fastest command-line colouring package on the internet",
 	"license": "MIT",
 	"repository": {
 		"type": "git",

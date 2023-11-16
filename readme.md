@@ -1,6 +1,6 @@
 # colours
 
-> The second-smallest and second-fastest command-line colouring package on the internet
+> The fastest command-line colouring package on the internet
 
 _Check out [the alternatives](#prior-art) for more packages like this._
 
@@ -40,12 +40,12 @@ _This package supports [basic color detection](https://nodejs.org/api/tty.html#w
 - `reset` - Reset the current style.
 - `bold` - Make the text bold.
 - `dim` - Make the text have lower opacity.
-- `italic` - Make the text italic. _(Not widely supported)_
-- `underline` - Put a horizontal line above the text. _(Not widely supported)_
-- `overline` - Put a horizontal line below the text. _(Not widely supported)_
+- `italic` - Make the text italic. *(Not widely supported)*
+- `underline` - Put a horizontal line below the text. *(Not widely supported)*
+- `overline` - Put a horizontal line above the text. *(Not widely supported)*
 - `inverse`- Invert background and foreground colors.
 - `hidden` - Print the text but make it invisible.
-- `strikethrough` - Put a horizontal line through the center of the text. _(Not widely supported)_
+- `strikethrough` - Puts a horizontal line through the center of the text. *(Not widely supported)*
 
 ### Colors
 
@@ -57,7 +57,14 @@ _This package supports [basic color detection](https://nodejs.org/api/tty.html#w
 - `magenta`
 - `cyan`
 - `white`
-- `gray`
+- `blackBright` (alias: `gray`, `grey`)
+- `redBright`
+- `greenBright`
+- `yellowBright`
+- `blueBright`
+- `magentaBright`
+- `cyanBright`
+- `whiteBright`
 
 ### Background colors
 
@@ -69,7 +76,14 @@ _This package supports [basic color detection](https://nodejs.org/api/tty.html#w
 - `bgMagenta`
 - `bgCyan`
 - `bgWhite`
-- `bgGray`
+- `bgBlackBright` (alias: `bgGray`, `bgGrey`)
+- `bgRedBright`
+- `bgGreenBright`
+- `bgYellowBright`
+- `bgBlueBright`
+- `bgMagentaBright`
+- `bgCyanBright`
+- `bgWhiteBright`
 
 ## Prior art
 
