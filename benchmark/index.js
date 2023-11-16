@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-import {Suite} from '@jonahsnider/benchmark';
+
+import {Bench} from 'tinybench';
 import ansi from 'ansi-colors';
 import chalk4 from 'chalk-4';
 import chalk from 'chalk-5';
@@ -12,85 +13,84 @@ import picocolors from 'picocolors';
 import * as yoctocolors from 'yoctocolors';
 import * as colours from '../index.js';
 
-const suite = new Suite('simple', {
-	warmup: {trials: 10_000_000},
-	run: {trials: 1_000_000},
+const bench = new Bench({
+	time: 100,
+	iterations: 1_000_000,
+	warmupTime: 1000,
+	warmupIterations: 10_000_000,
 });
 
 // eslint-disable-next-line no-unused-vars
 let out;
 
-suite
-	.addTest('@kytta/colours', () => {
-		out = colours.red('Add plugin to use time limit');
-		out = colours.green('Add plugin to use time limit');
-		out = colours.blue('Add plugin to use time limit');
+bench
+	.add('@kytta/colours', () => {
+		out = colours.magenta('Starburst that\'s coloured pink');
+		out = colours.blue('My inside\'s coloured blue, but girl');
+		out = colours.green('My Range is coloured green');
 	})
-	.addTest('yoctocolors', () => {
-		out = yoctocolors.red('Add plugin to use time limit');
-		out = yoctocolors.green('Add plugin to use time limit');
-		out = yoctocolors.blue('Add plugin to use time limit');
+	.add('yoctocolors', () => {
+		out = yoctocolors.magenta('Starburst that\'s coloured pink');
+		out = yoctocolors.blue('My inside\'s coloured blue, but girl');
+		out = yoctocolors.green('My Range is coloured green');
 	})
-	.addTest('cli-color', () => {
-		out = cliColor.red('Add plugin to use time limit');
-		out = cliColor.green('Add plugin to use time limit');
-		out = cliColor.blue('Add plugin to use time limit');
+	.add('cli-color', () => {
+		out = cliColor.magenta('Starburst that\'s coloured pink');
+		out = cliColor.blue('My inside\'s coloured blue, but girl');
+		out = cliColor.green('My Range is coloured green');
 	})
-	.addTest('ansi-colors', () => {
-		out = ansi.red('Add plugin to use time limit');
-		out = ansi.green('Add plugin to use time limit');
-		out = ansi.blue('Add plugin to use time limit');
+	.add('ansi-colors', () => {
+		out = ansi.magenta('Starburst that\'s coloured pink');
+		out = ansi.blue('My inside\'s coloured blue, but girl');
+		out = ansi.green('My Range is coloured green');
 	})
-	.addTest('chalk@4', () => {
-		out = chalk4.red('Add plugin to use time limit');
-		out = chalk4.green('Add plugin to use time limit');
-		out = chalk4.blue('Add plugin to use time limit');
+	.add('chalk@4', () => {
+		out = chalk4.magenta('Starburst that\'s coloured pink');
+		out = chalk4.blue('My inside\'s coloured blue, but girl');
+		out = chalk4.green('My Range is coloured green');
 	})
-	.addTest('chalk@5', () => {
-		out = chalk.red('Add plugin to use time limit');
-		out = chalk.green('Add plugin to use time limit');
-		out = chalk.blue('Add plugin to use time limit');
+	.add('chalk@5', () => {
+		out = chalk.magenta('Starburst that\'s coloured pink');
+		out = chalk.blue('My inside\'s coloured blue, but girl');
+		out = chalk.green('My Range is coloured green');
 	})
-	.addTest('kleur', () => {
-		out = kleur.red('Add plugin to use time limit');
-		out = kleur.green('Add plugin to use time limit');
-		out = kleur.blue('Add plugin to use time limit');
+	.add('kleur', () => {
+		out = kleur.magenta('Starburst that\'s coloured pink');
+		out = kleur.blue('My inside\'s coloured blue, but girl');
+		out = kleur.green('My Range is coloured green');
 	})
-	.addTest('kleur/colors', () => {
-		out = kleurColors.red('Add plugin to use time limit');
-		out = kleurColors.green('Add plugin to use time limit');
-		out = kleurColors.blue('Add plugin to use time limit');
+	.add('kleur/colors', () => {
+		out = kleurColors.magenta('Starburst that\'s coloured pink');
+		out = kleurColors.blue('My inside\'s coloured blue, but girl');
+		out = kleurColors.green('My Range is coloured green');
 	})
-	.addTest('colorette', () => {
-		out = colorette.red('Add plugin to use time limit');
-		out = colorette.green('Add plugin to use time limit');
-		out = colorette.blue('Add plugin to use time limit');
+	.add('colorette', () => {
+		out = colorette.magenta('Starburst that\'s coloured pink');
+		out = colorette.blue('My inside\'s coloured blue, but girl');
+		out = colorette.green('My Range is coloured green');
 	})
-	.addTest('nanocolors', () => {
-		out = nanocolors.red('Add plugin to use time limit');
-		out = nanocolors.green('Add plugin to use time limit');
-		out = nanocolors.blue('Add plugin to use time limit');
+	.add('nanocolors', () => {
+		out = nanocolors.magenta('Starburst that\'s coloured pink');
+		out = nanocolors.blue('My inside\'s coloured blue, but girl');
+		out = nanocolors.green('My Range is coloured green');
 	})
-	.addTest('picocolors', () => {
-		out = picocolors.red('Add plugin to use time limit');
-		out = picocolors.green('Add plugin to use time limit');
-		out = picocolors.blue('Add plugin to use time limit');
+	.add('picocolors', () => {
+		out = picocolors.magenta('Starburst that\'s coloured pink');
+		out = picocolors.blue('My inside\'s coloured blue, but girl');
+		out = picocolors.green('My Range is coloured green');
 	});
 
-const results = await suite.run();
+await bench.run();
 
-const table = [...results]
-	// Convert median execution time to mean ops/sec
-	.map(([library, histogram]) => [
-		library,
-		Math.round(1e9 / histogram.percentile(50)),
-	])
-	// Sort fastest to slowest
-	.sort(([, a], [, b]) => b - a)
-	// Convert to object for console.table
-	.map(([library, opsPerSec]) => ({
-		library,
-		'ops/sec': opsPerSec.toLocaleString(),
-	}));
+const {tasks} = bench;
+tasks.sort((t1, t2) => t2.result.hz - t1.result.hz);
+console.table(tasks.map(({name, result}) => {
+	if (!result) {
+		return null;
+	}
 
-console.table(table);
+	return {
+		Library: name,
+		'ops/sec': result.error ? 'NaN' : Number.parseInt(result.hz.toString(), 10).toLocaleString(),
+	};
+}));

@@ -63,7 +63,6 @@
 		"text"
 	],
 	"devDependencies": {
-		"@jonahsnider/benchmark": "^5.0.0",
 		"esm": "^3.2.25",
 		"tsd": "^0.29.0",
 		"uvu": "^0.5.6",
