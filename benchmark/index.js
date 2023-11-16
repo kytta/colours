@@ -9,7 +9,8 @@ import kleur from 'kleur';
 import * as kleurColors from 'kleur/colors';
 import * as nanocolors from 'nanocolors';
 import picocolors from 'picocolors';
-import * as yoctocolors from '../index.js';
+import * as yoctocolors from 'yoctocolors';
+import * as colours from '../index.js';
 
 const suite = new Suite('simple', {
 	warmup: {trials: 10_000_000},
@@ -20,6 +21,11 @@ const suite = new Suite('simple', {
 let out;
 
 suite
+	.addTest('@kytta/colours', () => {
+		out = colours.red('Add plugin to use time limit');
+		out = colours.green('Add plugin to use time limit');
+		out = colours.blue('Add plugin to use time limit');
+	})
 	.addTest('yoctocolors', () => {
 		out = yoctocolors.red('Add plugin to use time limit');
 		out = yoctocolors.green('Add plugin to use time limit');
