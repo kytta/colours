@@ -14,7 +14,7 @@ _Check out [the alternatives](#prior-art) for more packages like this._
 - Supports [`NO_COLOR`][no-color] & `FORCE_COLOR`
 - Supports bright colours
 - Can be composed (WIP)
-- Works in browsers (WIP)
+- Works in browsers
 - Works on CommonJS
 
 ## Install

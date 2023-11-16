@@ -29,8 +29,16 @@
 	"type": "module",
 	"sideEffects": false,
 	"types": "./index.d.ts",
+	"browser": {
+		"./index.js": "./index.browser.js",
+		"./index.cjs": "./index.browser.cjs"
+	},
+	"main": "index.cjs",
+	"module": "index.js",
+	"react-native": "index.browser.js",
 	"exports": {
 		".": {
+			"browser": "./index.browser.js",
 			"require": "./index.cjs",
 			"import": "./index.js",
 			"default": "./index.js"
