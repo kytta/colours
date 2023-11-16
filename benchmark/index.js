@@ -1,15 +1,16 @@
 #!/usr/bin/env node
 import {Suite} from '@jonahsnider/benchmark';
 import ansi from 'ansi-colors';
-import chalk from 'chalk';
+import chalk4 from 'chalk-4';
+import chalk from 'chalk-5';
 import cliColor from 'cli-color';
 import * as colorette from 'colorette';
 import kleur from 'kleur';
-// eslint-disable-next-line n/file-extension-in-import
 import * as kleurColors from 'kleur/colors';
 import * as nanocolors from 'nanocolors';
 import picocolors from 'picocolors';
-import * as yoctocolors from './index.js';
+import * as yoctocolors from 'yoctocolors';
+import * as colours from '../index.js';
 
 const suite = new Suite('simple', {
 	warmup: {trials: 10_000_000},
@@ -20,6 +21,11 @@ const suite = new Suite('simple', {
 let out;
 
 suite
+	.addTest('@kytta/colours', () => {
+		out = colours.red('Add plugin to use time limit');
+		out = colours.green('Add plugin to use time limit');
+		out = colours.blue('Add plugin to use time limit');
+	})
 	.addTest('yoctocolors', () => {
 		out = yoctocolors.red('Add plugin to use time limit');
 		out = yoctocolors.green('Add plugin to use time limit');
@@ -35,7 +41,12 @@ suite
 		out = ansi.green('Add plugin to use time limit');
 		out = ansi.blue('Add plugin to use time limit');
 	})
-	.addTest('chalk', () => {
+	.addTest('chalk@4', () => {
+		out = chalk4.red('Add plugin to use time limit');
+		out = chalk4.green('Add plugin to use time limit');
+		out = chalk4.blue('Add plugin to use time limit');
+	})
+	.addTest('chalk@5', () => {
 		out = chalk.red('Add plugin to use time limit');
 		out = chalk.green('Add plugin to use time limit');
 		out = chalk.blue('Add plugin to use time limit');

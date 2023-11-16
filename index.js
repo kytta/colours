@@ -1,6 +1,6 @@
-import tty from 'node:tty';
+// eslint-disable-next-line unicorn/prefer-node-protocol
+import tty from 'tty';
 
-// TODO: Use a better method when it's added to Node.js (https://github.com/nodejs/node/pull/40240)
 const hasColors = tty.WriteStream.prototype.hasColors();
 
 // Intentionally not using template literal for performance.
