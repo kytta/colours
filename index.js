@@ -10,7 +10,7 @@ export const dim = hasColors ? string => '\u001B[2m' + string + '\u001B[22m' : s
 export const italic = hasColors ? string => '\u001B[3m' + string + '\u001B[23m' : string => string;
 export const underline = hasColors ? string => '\u001B[4m' + string + '\u001B[24m' : string => string;
 
-// blink is intentionally left out
+// Blink is intentionally left out
 //   => https://github.com/chalk/ansi-styles/pull/6
 
 export const inverse = hasColors ? string => '\u001B[7m' + string + '\u001B[27m' : string => string;

@@ -18,7 +18,7 @@ const bench = new Bench({
 	iterations: 1_000_000,
 	warmupTime: 1000,
 	warmupIterations: 10_000_000,
-	now: hrtimeNow
+	now: hrtimeNow,
 });
 
 // eslint-disable-next-line no-unused-vars
