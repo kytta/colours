@@ -12,7 +12,7 @@ _Check out [the alternatives](#prior-art) for more packages like this._
 - No dependencies
 - Actively maintained
 - Supports [`NO_COLOR`][no-color] & `FORCE_COLOR`
-- Supports bright colours (WIP)
+- Supports bright colours
 - Can be composed (WIP)
 - Works in browsers (WIP)
 - Works on CommonJS (WIP)
@@ -93,17 +93,17 @@ $ ./benchmark/index.js
 ┌─────────┬──────────────────┬──────────────┐
 │ (index) │     Library      │   ops/sec    │
 ├─────────┼──────────────────┼──────────────┤
-│    0    │  'yoctocolors'   │ '28.366.029' │
-│    1    │ '@kytta/colours' │ '23.174.422' │
-│    2    │   'nanocolors'   │ '17.889.336' │
-│    3    │   'picocolors'   │ '17.711.892' │
-│    4    │  'kleur/colors'  │ '17.532.343' │
-│    5    │   'colorette'    │ '17.526.359' │
-│    6    │    'chalk@5'     │ '10.626.501' │
-│    7    │     'kleur'      │ '10.149.691' │
-│    8    │    'chalk@4'     │ '9.931.832'  │
-│    9    │  'ansi-colors'   │ '3.807.530'  │
-│   10    │   'cli-color'    │  '804.993'   │
+│    0    │ '@kytta/colours' │ '27.725.838' │
+│    1    │  'yoctocolors'   │ '26.188.058' │
+│    2    │   'nanocolors'   │ '17.240.092' │
+│    3    │   'picocolors'   │ '16.857.757' │
+│    4    │   'colorette'    │ '16.798.142' │
+│    5    │  'kleur/colors'  │ '16.535.599' │
+│    6    │     'kleur'      │ '10.393.367' │
+│    7    │    'chalk@5'     │ '10.101.294' │
+│    8    │    'chalk@4'     │ '9.207.347'  │
+│    9    │  'ansi-colors'   │ '3.825.073'  │
+│   10    │   'cli-color'    │  '806.073'   │
 └─────────┴──────────────────┴──────────────┘
 ```
 

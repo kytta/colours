@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import {Bench} from 'tinybench';
+import {Bench, hrtimeNow} from 'tinybench';
 import ansi from 'ansi-colors';
 import chalk4 from 'chalk-4';
 import chalk from 'chalk-5';
@@ -18,6 +18,7 @@ const bench = new Bench({
 	iterations: 1_000_000,
 	warmupTime: 1000,
 	warmupIterations: 10_000_000,
+	now: hrtimeNow
 });
 
 // eslint-disable-next-line no-unused-vars
